@@ -7,23 +7,23 @@
     margin: auto;
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 /* Текст Fancy Box */
 h1 {
     text-align: center;
     color: #FF69B4;
-    font-family: 'Arial', sans-serif;
 }
 
 /* Вміст контейнера */
 .content {
-    text-align: absolute;
     background-color: #FFC0CB;
     border: 2px solid #FF69B4;
     border-radius: 8px;
     padding: 20px;
     position: relative;
+    color: #FF69B4; /* Колір тексту, щоб збігався з fancy text */
 }
 
 /* Заголовок рамки */
@@ -34,9 +34,10 @@ h1 {
     font-size: 12px;
     position: absolute;
     top: -15px;
-    left: 0;
-    right: 0;
+    left: -2px; /* Вирівнювання по краях */
+    right: -2px; /* Вирівнювання по краях */
     text-align: left;
+    border-radius: 8px 8px 0 0; /* Згладжені кути вгорі */
 }
 
 /* Іконки керування вікном */
