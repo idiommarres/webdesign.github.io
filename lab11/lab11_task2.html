@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 11 - Завдання 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2</h1>
+        <div class="content">
+            <!-- Заголовок з керуванням вікном -->
+            <div class="content-title">
+                Task2.exe
+                <div class="window-controls">
+                    <span>🗕</span>
+                    <span>🗖</span>
+                    <span>🗙</span>
+                </div>
+            </div>
+
+            <!-- Опис виразу -->
+            <p>Ми будемо обчислювати наступний арифметичний вираз:</p>
+            <p style="font-weight: bold;">y = 2x + 5</p>
+
+            <!-- Вміст вікна -->
+            <p>Натисніть кнопку для обчислення цього виразу</p>
+            <button onclick="calculateExpression()">Обчислити вираз</button>
+
+            <!-- Скрипт для обчислення виразу -->
+            <script>
+                "use strict";
+                function calculateExpression() {
+                    const x = parseFloat(prompt("Введіть значення x", ""));
+                    if (isNaN(x)) {
+                        alert("Будь ласка, введіть коректне число для x.");
+                        return;
+                    }
+
+                    // Арифметичний вираз: y = 2x + 5
+                    let y = 2 * x + 5;
+
+                    // Виведення результату з поясненням
+                    alert("Виконані операції:\n" +
+                          "y = 2 * " + x + " + 5\n" +
+                          "Результат: y = " + y);
+                }
+            </script>
+
+            <!-- Кнопка Home -->
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="index.html" class="home-button">🏠 Повернутись на головну</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
