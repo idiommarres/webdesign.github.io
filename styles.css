@@ -23,7 +23,7 @@ h1 {
     border-radius: 8px;
     padding: 20px;
     position: relative;
-    color: #FF69B4; /* Колір тексту, щоб збігався з fancy text */
+    color: #FF69B4;
 }
 
 /* Заголовок рамки */
@@ -34,10 +34,10 @@ h1 {
     font-size: 12px;
     position: absolute;
     top: -15px;
-    left: -2px; /* Вирівнювання по краях */
-    right: -2px; /* Вирівнювання по краях */
+    left: -2px;
+    right: -2px;
     text-align: left;
-    border-radius: 8px 8px 0 0; /* Згладжені кути вгорі */
+    border-radius: 8px 8px 0 0;
 }
 
 /* Іконки керування вікном */
@@ -57,3 +57,194 @@ h1 {
 .window-controls span:hover {
     color: #FFFFFF;
 }
+
+:root {
+  --pink: #f7a6ba;
+  --pink2: #E03E3E;
+  --red: #CC0000;
+  --blue: #002244;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+body {
+  background: beige;
+}
+
+/* Character parts */
+#right-leg, #left-leg, #puffball, #right-arm, #left-arm, #right-eye, #left-eye, #right-white, #left-white, #mouth, #right-blush, #left-blush {
+  position: absolute;
+}
+
+#right-leg {
+  width: 200px;
+  height: 150px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse, var(--red) 70px, transparent 0px) -30px 60px / 200px 100px;
+  background-repeat: no-repeat;
+  transform: translate(5%, 40%) rotate(40deg);
+}
+
+#left-leg {
+  width: 200px;
+  height: 150px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse, var(--red) 70px, transparent 0px) -30px 20px / 200px 100px;
+  background-repeat: no-repeat;
+  transform: rotate(140deg) translate(90%, 30%);
+}
+
+#puffball {
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, var(--pink) 110px, transparent 0px) -70px 0px / 470px 400px;
+}
+
+#right-arm {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse at 100%, var(--pink) 85px, transparent 0px) 20px 70px / 100px 100px;
+  background-repeat: no-repeat;
+  transform: rotate(210deg) translate(5%, 0%);
+}
+
+#left-arm {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse at 100%, var(--pink) 85px, transparent 0px) 0px 0px / 100px 100px;
+  background-repeat: no-repeat;
+  transform: rotate(30deg) translate(-85%, 40%);
+}
+
+/* Eyes and blush */
+#right-eye, #left-eye {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse at 50%, var(--blue) 13px, transparent 0px) 0px 0px / 100px 250px;
+  background-repeat: no-repeat;
+}
+
+#right-eye {
+  transform: translate(-5%, -40%);
+}
+
+#left-eye {
+  transform: translate(-30%, -40%);
+}
+
+#right-white, #left-white {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse at 50%, var(--white) 8.5px, transparent 0px) 0px 0px / 100px 250px;
+  background-repeat: no-repeat;
+}
+
+#right-white {
+  transform: translate(-5%, -45%);
+}
+
+#left-white {
+  transform: translate(-30%, -45%);
+}
+
+#mouth {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse at 50%, var(--red) 15px, transparent 0px) 0px -100px / 100px 200px;
+  background-repeat: no-repeat;
+  transform: translate(-35px, 85px);
+}
+
+#right-blush, #left-blush {
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(ellipse at 50%, var(--pink2) 10px, transparent 0px) 0px 0px / 200px 100px;
+  background-repeat: no-repeat;
+}
+
+#right-blush {
+  transform: translate(-10%, 15%);
+}
+
+#left-blush {
+  transform: translate(-75%, 15%);
+}
+
+/* Додано блок з CSS-зображенням */
+.character-section {
+    text-align: center; /* Центруємо текст */
+    margin: 20px 0; /* Відступи для секції */
+}
+
+.character {
+    position: relative; /* Встановлюємо відносну позицію */
+    width: 200px; /* Ширина персонажа */
+    height: 400px; /* Висота персонажа */
+    margin: 0 auto; /* Центруємо по горизонталі */
+}
+
+/* Інші стилі залишаються без змін... */
+
+/* CSS анімація */
+.css-animation {
+  animation-name: my-animation;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+@keyframes my-animation {
+  from {
+    background-color: #ff7a59;
+    width: 300px;
+  }
+  to {
+    background-color: #33475b;
+    width: 50px;
+  }
+}
+
+/* Анімація для тексту */
+.animation h1 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SVG анімація */
+.svg-animation {
+  margin: 20px auto;
+}
+
