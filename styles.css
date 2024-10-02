@@ -14,14 +14,16 @@
     margin: auto;
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'CalmnessMono', sans-serif; /* Використання нестандартного шрифту */
+    font-family: 'CalmnessMono', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px; /* Збільшено розмір шрифту */
 }
 
 /* Текст Fancy Box */
 h1 {
     text-align: center;
     color: #FF69B4;
-    font-family: 'CalmnessMono', sans-serif; /* Використання нестандартного шрифту для заголовків */
+    font-family: 'CalmnessMono', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 28px; /* Збільшено розмір заголовка */
 }
 
 /* Вміст контейнера */
@@ -32,6 +34,7 @@ h1 {
     padding: 20px;
     position: relative;
     color: #FF69B4;
+    font-size: 18px; /* Збільшено розмір шрифту для вмісту */
 }
 
 /* Заголовок рамки */
@@ -39,7 +42,7 @@ h1 {
     background-color: #FF69B4;
     color: #FFFFFF;
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 16px; /* Збільшено розмір шрифту заголовка рамки */
     position: absolute;
     top: -15px;
     left: -2px;
@@ -58,7 +61,7 @@ h1 {
 .window-controls span {
     color: #C71585;
     margin-right: 4px;
-    font-size: 14px;
+    font-size: 16px; /* Збільшено розмір шрифту для іконок */
     cursor: pointer;
 }
 
