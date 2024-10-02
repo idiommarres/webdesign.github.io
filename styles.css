@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'CalmnessMono';
+    src: url('fonts/CALMNESSMONO.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Основний контейнер */
 .container {
     max-width: 700px;
@@ -7,13 +14,14 @@
     margin: auto;
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'CalmnessMono', sans-serif; /* Використання нестандартного шрифту */
 }
 
 /* Текст Fancy Box */
 h1 {
     text-align: center;
     color: #FF69B4;
+    font-family: 'CalmnessMono', sans-serif; /* Використання нестандартного шрифту для заголовків */
 }
 
 /* Вміст контейнера */
