@@ -15,16 +15,59 @@
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-family: 'CalmnessMono', 'Comic Sans MS', cursive, sans-serif;
-    font-size: 18px; /* Збільшено розмір шрифту */
+    font-size: 18px;
 }
 
-/* Текст Fancy Box */
+/* Заголовок */
 h1 {
     text-align: center;
     color: #FF69B4;
     font-family: 'CalmnessMono', 'Comic Sans MS', cursive, sans-serif;
-    font-size: 28px; /* Збільшено розмір заголовка */
+    font-size: 28px;
 }
+
+/* Google Font Sixtyfour Convergence для певного тексту */
+.google-font {
+    font-family: 'Sixtyfour Convergence', sans-serif;
+    font-size: 20px;
+}
+
+/* Іконковий розділ */
+.icon-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.icon {
+    text-align: center;
+}
+
+.icon i {
+    font-size: 40px;
+}
+
+/* Текст для іконок */
+.sixtyfour-text {
+    font-family: 'Sixtyfour Convergence', sans-serif;
+}
+
+/* Кнопка Home */
+.home-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #FF69B4; /* Відповідає кольору заголовка */
+    color: #FFF; /* Білий текст для контрасту */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: 'CalmnessMono', sans-serif;
+}
+
+.home-button:hover {
+    background-color: #FF1493; /* Темніший відтінок рожевого при наведенні */
+}
+
+
 
 /* Вміст контейнера */
 .content {
