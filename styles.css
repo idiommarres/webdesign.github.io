@@ -80,17 +80,29 @@ h1 {
     border-radius: 8px 8px 0 0;
 }
 
-/* Іконки соцмереж */
 .social-media {
     display: flex;
-    justify-content: center; /* Центрування іконок соцмереж */
-    margin-top: 20px;
+    justify-content: center;
+    gap: 15px; /* Відстань між іконками */
 }
 
-.social-media a {
-    margin: 0 15px;
-    font-size: 40px;
+.icon {
+    text-decoration: none; /* Залишаємо без підкреслень */
+    color: #000; /* Задаємо колір іконок */
 }
+
+
+.social-media a {
+    margin: 0 15px; /* Відстань між іконками */
+    font-size: 40px; /* Розмір іконок */
+    color: #FF69B4; /* Колір іконок */
+    transition: transform 0.2s; /* Анімація при наведенні */
+}
+
+.social-media a:hover {
+    transform: scale(1.1); /* Збільшення при наведенні */
+}
+
 
 /* Іконки керування вікном */
 .window-controls {
@@ -253,7 +265,6 @@ body {
     margin: 0 auto; /* Центруємо по горизонталі */
 }
 
-/* Інші стилі залишаються без змін... */
 
 /* CSS анімація */
 .css-animation {
