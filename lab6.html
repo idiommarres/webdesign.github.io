@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 6</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet.js для OpenStreetMap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="calmness-text">Лабораторна Робота 6</h1>
+        <div class="content">
+            <!-- Заголовок з керуванням вікном -->
+            <div class="content-title google-font">
+                Lab6.exe
+                <div class="window-controls">
+                    <span>🗕</span>
+                    <span>🗖</span>
+                    <span>🗙</span>
+                </div>
+            </div>
+
+            <!-- Карта Google Maps -->
+            <div style="margin-top: 20px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2573.4102408277913!2d24.010372539998283!3d49.834748773052084!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add7a31f0dccd%3A0x9869cc7025bc8e3f!2z0J3QsNGG0ZbQvtC90LDQu9GM0L3QuNC5INGD0L3RltCy0LXRgNGB0LjRgtC10YIgItCb0YzQstGW0LLRgdGM0LrQsCDQn9C-0LvRltGC0LXRhdC90ZbQutCwIg!5e0!3m2!1suk!2sua!4v1729063929301!5m2!1suk!2sua" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Вуличний перегляд Google Maps -->
+            <div style="margin-top: 20px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!4v1671557181783!6m8!1m7!1szhZt5SlOAPPrDOXoT_V7Qw!2m2!1d49.834697!2d24.0144709!3f11.128634!4f-11.128634!5f0.7820865974627469" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Новий iframe з маршрутом -->
+            <div style="margin-top: 20px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d2573.3677887609783!2d24.00869057748654!3d49.83554652148115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x473add8e0d340f09%3A0x699fc00c7adebdd8!2zNS3QuSDQutC-0YDQv9GD0YEg0J3QoyDigJzQm9GM0LLRltCy0YHRjNC60LAg0L_QvtC70ZbRgtC10YXQvdGW0LrQsOKAnSwg0LLRg9C70LjRhtGPINCh0YLQtdC_0LDQvdCwINCR0LDQvdC00LXRgNC4LCAzMCwg0JvRjNCy0ZbQsiwg0JvRjNCy0ZbQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA3OTAwMA!3m2!1d49.8349796!2d24.008074399999998!4m5!1s0x473add7a31f0dccd%3A0x9869cc7025bc8e3f!2z0J3QsNGG0ZbQvtC90LDQu9GM0L3QuNC5INGD0L3RltCy0LXRgNGB0LjRgtC10YIgItCb0YzQstGW0LLRgdGM0LrQsCDQn9C-0LvRltGC0LXRhdC90ZbQutCwIiwg0YPQu9C40YbQsCDQodGC0LXQv9Cw0L3QsCDQkdCw0L3QtNC10YDRiywg0JvRjNCy0L7Qsiwg0JvRjNCy0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGM!3m2!1d49.8356402!2d24.0144368!5e0!3m2!1sru!2sua!4v1727281101677!5m2!1sru!2sua" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Відео -->
+            <div style="margin-top: 20px; text-align: center;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PLOPygVcaVE" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- Аудіо -->
+            <div style="margin-top: 20px; text-align: center;">
+                <audio controls>
+                    <source src="audio/pianosong.mp3" type="audio/mpeg">
+                    Ваш браузер не підтримує аудіо тег.
+                </audio>
+            </div>
+
+            <!-- CSS Nyan Cat -->
+            <div style="margin-top: 20px; text-align: center;">
+                <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="nrjqKn" data-pen-title="CSS Nyan Cat" data-user="eusonic" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/eusonic/pen/nrjqKn">CSS Nyan Cat</a> by Cameron Spencer (<a href="https://codepen.io/eusonic">@eusonic</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+            <!-- Конвертер валют -->
+            <div style="margin-top: 20px; text-align: center;">
+                <script src="https://cdn.logwork.com/widget/currency_converter.js"></script>
+                <a href="https://logwork.com/free-currency-converter-calculator" class="currency_convertor" data-currencies="USD,EUR,JPY,GBP,CNY,INR">Currency Converter</a>
+            </div>
+
+            <!-- Соціальні мережі -->
+            <div class="social-media" style="text-align: center; margin-top: 20px;">
+                <a href="https://www.facebook.com" target="_blank" class="icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank" class="icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+			<!-- Кнопка Home -->
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="index.html" class="home-button">🏠 Повернутись на головну</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

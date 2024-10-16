@@ -14,59 +14,44 @@
     margin: auto;
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'CalmnessMono', 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'CalmnessMono', sans-serif;
     font-size: 18px;
+    text-align: center; /* Центрування вмісту */
 }
 
 /* Заголовок */
 h1 {
     text-align: center;
     color: #FF69B4;
-    font-family: 'CalmnessMono', 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'CalmnessMono', sans-serif;
     font-size: 28px;
 }
 
-/* Google Font Teko для певного тексту */
-.google-font {
-    font-family: 'Teko', sans-serif;
-    font-size: 20px;
-}
-
-/* Іконковий розділ */
 .icon-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Центрування іконок */
     margin-top: 20px;
-}
-
-.icon {
-    text-align: center;
 }
 
 .icon i {
     font-size: 40px;
 }
 
-/* Текст для іконок */
-.sixtyfour-text {
-    font-family: 'Teko', sans-serif;
-}
-
 /* Кнопка Home */
 .home-button {
     text-decoration: none;
     padding: 10px 20px;
-    background-color: #FF69B4; /* Відповідає кольору заголовка */
-    color: #FFF; /* Білий текст для контрасту */
+    background-color: #FF69B4;
+    color: #FFF;
     border-radius: 5px;
     transition: background-color 0.3s;
     font-family: 'CalmnessMono', sans-serif;
+    display: inline-block;
 }
 
 .home-button:hover {
-    background-color: #FF1493; /* Темніший відтінок рожевого при наведенні */
+    background-color: #FF1493;
 }
-
 
 
 /* Вміст контейнера */
@@ -77,7 +62,8 @@ h1 {
     padding: 20px;
     position: relative;
     color: #FF69B4;
-    font-size: 18px; /* Збільшено розмір шрифту для вмісту */
+    font-size: 18px;
+    text-align: center; /* Центрування контенту */
 }
 
 /* Заголовок рамки */
@@ -85,13 +71,25 @@ h1 {
     background-color: #FF69B4;
     color: #FFFFFF;
     padding: 5px 10px;
-    font-size: 16px; /* Збільшено розмір шрифту заголовка рамки */
+    font-size: 16px;
     position: absolute;
     top: -15px;
     left: -2px;
     right: -2px;
     text-align: left;
     border-radius: 8px 8px 0 0;
+}
+
+/* Іконки соцмереж */
+.social-media {
+    display: flex;
+    justify-content: center; /* Центрування іконок соцмереж */
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 15px;
+    font-size: 40px;
 }
 
 /* Іконки керування вікном */
@@ -104,13 +102,14 @@ h1 {
 .window-controls span {
     color: #C71585;
     margin-right: 4px;
-    font-size: 16px; /* Збільшено розмір шрифту для іконок */
+    font-size: 16px;
     cursor: pointer;
 }
 
 .window-controls span:hover {
     color: #FFFFFF;
 }
+
 
 :root {
   --pink: #f7a6ba;
