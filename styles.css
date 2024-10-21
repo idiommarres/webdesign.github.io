@@ -136,6 +136,138 @@ body {
   background: beige;
 }
 
+/* Динамічне коло */
+.dynamic-circle {
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 105, 180);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+
+/* Стилі для акордеону */
+.ui-accordion .ui-accordion-header {
+    background-color: #FF69B4; /* Рожевий фон заголовка */
+    color: #FFFFFF; /* Білий текст */
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'CalmnessMono', sans-serif;
+    border: none; /* Видалення обводки */
+}
+
+.ui-accordion .ui-accordion-header:hover {
+    background-color: rgb(255, 105, 180); /* Світліший рожевий при наведенні */
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 10px;
+    background-color: #FFE3E3; /* Світлий фон контенту */
+    font-family: 'CalmnessMono', sans-serif;
+    color: #FF69B4; /* Рожевий текст */
+}
+
+/* Стилі для вкладок */
+.ui-tabs .ui-tabs-nav {
+    background-color: #FFE3E3; /* Світлий фон для вкладок */
+    border: none; /* Видалення обводки */
+    padding: 0; /* Зміщення для вкладок */
+}
+
+.ui-tabs .ui-tabs-nav li {
+    display: inline; /* Розташування вкладок в ряд */
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    font-family: 'CalmnessMono', sans-serif;
+    color: #FF69B4; /* Рожевий колір тексту */
+    background-color: transparent; /* Прозорий фон */
+    border-radius: 5px;
+    padding: 10px 20px; /* Внутрішні відступи для кнопок */
+    text-decoration: none; /* Без підкреслень */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.ui-tabs .ui-tabs-nav li a:hover {
+    background-color: rgb(255, 182, 193); /* Світліший рожевий при наведенні */
+    color: #FF1493; /* Темніший рожевий при наведенні */
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    background-color: rgb(255, 105, 180); /* Активна вкладка */
+    color: #FFFFFF; /* Білий текст для активної вкладки */
+}
+
+/* Вміст вкладок */
+.ui-tabs .ui-tabs-panel {
+    padding: 10px;
+    background-color: #FFE3E3; /* Світлий фон вмісту вкладок */
+    color: #FF69B4; /* Рожевий текст */
+    border-radius: 5px; /* Краї вмісту вкладок */
+    font-family: 'CalmnessMono', sans-serif; /* Шрифт для вмісту */
+}
+
+/* Карусель */
+.carousel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1.3em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    padding: 0;
+    cursor: pointer;
+    color: #FFF;
+    border: none;
+    background-color: rgb(255, 182, 193); /* Світліший рожевий для кнопок */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: rgb(204, 0, 0); /* Темний червоний для наведення */
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #FFF;
+}
+
+.slick-prev:before {
+    content: '←';
+}
+
+.slick-next:before {
+    content: '→';
+}
+
+/* Повзунок */
+.ui-slider-handle {
+    background-color: rgb(255, 182, 193); /* Світліший рожевий для повзунка */
+    outline: none; /* Видалення обводки */
+}
+
+#slider {
+    background-color: #FFC0CB; /* Світлий фон */
+    height: 10px;
+    border-radius: 5px;
+}
+
+
 /* Character parts */
 #right-leg, #left-leg, #puffball, #right-arm, #left-arm, #right-eye, #left-eye, #right-white, #left-white, #mouth, #right-blush, #left-blush {
   position: absolute;

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 7</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="calmness-text">Лабораторна Робота 7</h1>
+        <div class="content">
+            <div class="content-title google-font">
+                Lab7.exe
+                <div class="window-controls">
+                    <span>🗕</span>
+                    <span>🗖</span>
+                    <span>🗙</span>
+                </div>
+            </div>
+
+            <!-- Динамічні елементи -->
+            <div id="accordion" style="margin-top: 20px;">
+                <h3>Accordion 1</h3>
+                <div>
+                    <p>Це перший пункт у акордеоні.</p>
+                </div>
+                <h3>Accordion 2</h3>
+                <div>
+                    <p>Це другий пункт у акордеоні.</p>
+                </div>
+                <h3>Accordion 3</h3>
+                <div>
+                    <p>Це третій пункт у акордеоні.</p>
+                </div>
+            </div>
+
+            <div id="tabs" style="margin-top: 20px;">
+                <ul>
+                    <li><a href="#tabs-1">Tab 1</a></li>
+                    <li><a href="#tabs-2">Tab 2</a></li>
+                    <li><a href="#tabs-3">Tab 3</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>Зміст для першої вкладки.</p>
+                </div>
+                <div id="tabs-2">
+                    <p>Зміст для другої вкладки.</p>
+                </div>
+                <div id="tabs-3">
+                    <p>Зміст для третьої вкладки.</p>
+                </div>
+            </div>
+
+            <div class="slider-container" style="margin-top: 20px;">
+    <label for="slider">Виберіть значення:</label>
+    <div id="slider"></div>
+    <span id="slider-value" style="margin-top: 10px;">Значення: 50</span>
+
+    <!-- Динамічний елемент -->
+    <div class="dynamic-circle" id="dynamic-circle"></div>
+</div>
+
+            <!-- Карусель-галерея -->
+            <div class="carousel" style="margin-top: 30px;">
+                <div><img src="img/image1.png" alt="Фото 1"></div>
+                <div><img src="img/image2.png" alt="Фото 2"></div>
+                <div><img src="img/image3.png" alt="Фото 3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(function() {
+            $("#accordion").accordion();
+            $("#tabs").tabs();
+
+            $("#slider").slider({
+                value: 50,
+                min: 0,
+                max: 100,
+                slide: function(event, ui) {
+                    $("#slider-value").text("Значення: " + ui.value);
+                }
+            });
+
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                arrows: true
+            });
+        });
+		$(function() {
+    $("#slider").slider({
+        value: 50,
+        min: 0,
+        max: 100,
+        slide: function(event, ui) {
+            $("#slider-value").text("Значення: " + ui.value);
+
+            // Зміна розміру кола
+            let newSize = ui.value + "px";
+            $("#dynamic-circle").css({
+                "width": newSize,
+                "height": newSize
+            });
+
+            // Динамічна зміна кольору
+            if (ui.value > 50) {
+                $("#dynamic-circle").css("background-color", "rgb(255, 182, 193)"); // світліший рожевий
+            } else {
+                $("#dynamic-circle").css("background-color", "rgb(255, 105, 180)"); // темніший рожевий
+            }
+        }
+    });
+});
+
+    </script>
+	
+</body>
+</html>
