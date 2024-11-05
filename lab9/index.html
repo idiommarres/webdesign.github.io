@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uk">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sweet Corner - Кав'ярня</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+   </head>
+   <body>
+      <!--NAVIGATION-->
+      <nav class="navbar navbar-expand-lg">
+         <div class="container">
+            <a class="navbar-brand" href="#" data-bs-toggle="tooltip" title="Вибачте, це нефункціональна кнопка!"><i class="fas fa-coffee"></i> Sweet Corner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Головна</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#" onclick="scrollToSection('menu-section')">Меню</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#" data-bs-toggle="tooltip" title="Цей розділ наразі недоступний">Про нас</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#" onclick="scrollToSection('booking-form')">Бронювання</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!--/NAVIGATION-->
+
+      <!--HERO SECTION-->
+      <section class="hero-section">
+         <div class="container">
+            <h1 class="hero-title">Затишна кав'ярня Sweet Corner</h1>
+            <p class="hero-subtitle">Найсмачніша кава та десерти у місті</p>
+            <button class="btn btn-primary" onclick="scrollToSection('booking-form')" data-bs-toggle="tooltip" title="Натисніть для прокрутки до бронювання">Забронювати столик</button>
+         </div>
+      </section>
+      <!--/HERO SECTION-->
+
+      <!--MAIN CONTENT-->
+      <div class="container">
+         <!--MENU SECTION-->
+         <div id="menu-section" class="card mb-5">
+            <div class="card-body">
+               <h3 class="card-title text-center mb-4">Наше меню</h3>
+               <div class="menu-item">
+                  <span>Капучино з корицею</span>
+                  <span class="menu-item-price">75 ₴</span>
+               </div>
+               <div class="menu-item">
+                  <span>Лате з карамеллю</span>
+                  <span class="menu-item-price">85 ₴</span>
+               </div>
+               <div class="menu-item">
+                  <span>Чізкейк полуничний</span>
+                  <span class="menu-item-price">95 ₴</span>
+               </div>
+               <div class="menu-item">
+                  <span>Круасан з шоколадом</span>
+                  <span class="menu-item-price">65 ₴</span>
+               </div>
+            </div>
+         </div>
+         <!--/MENU SECTION-->
+
+         <!--FEATURES SECTION-->
+         <div class="row text-center mb-5">
+            <div class="col-md-4">
+               <i class="fas fa-wifi feature-icon"></i>
+               <h4>Безкоштовний Wi-Fi</h4>
+               <p>Швидкісний інтернет для роботи та відпочинку</p>
+            </div>
+            <div class="col-md-4">
+               <i class="fas fa-clock feature-icon"></i>
+               <h4>Працюємо щодня</h4>
+               <p>З 8:00 до 22:00</p>
+            </div>
+            <div class="col-md-4">
+               <i class="fas fa-map-marker-alt feature-icon"></i>
+               <h4>Зручне розташування</h4>
+               <p>В самому центрі міста</p>
+            </div>
+         </div>
+         <!--/FEATURES SECTION-->
+
+         <!--BOOKING FORM-->
+         <div id="booking-form" class="card">
+            <div class="card-body">
+               <h3 class="card-title text-center mb-4">Забронювати столик</h3>
+               <form>
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" placeholder="Ваше ім'я">
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <input type="tel" class="form-control" placeholder="Телефон">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <input type="date" class="form-control">
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <input type="time" class="form-control">
+                     </div>
+                  </div>
+                  <div class="mb-3">
+                     <textarea class="form-control" rows="3" placeholder="Додаткові побажання"></textarea>
+                  </div>
+                  <div class="text-center">
+                     <button type="button" class="btn btn-primary" onclick="submitReservation()">Забронювати <i class="fas fa-check"></i></button>
+                  </div>
+               </form>
+               <div class="alert alert-info mt-3 d-none" role="alert" id="bookingAlert">
+                  Ваше бронювання відправлено! невідомо куди, вибачте.
+               </div>
+            </div>
+         </div>
+         <!--/BOOKING FORM-->
+      </div>
+      <!--/MAIN CONTENT-->
+
+      <!--FOOTER-->
+      <footer class="py-4">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <h5>Sweet Corner</h5>
+                  <p>Затишна кав'ярня у центрі міста</p>
+               </div>
+               <div class="col-md-4">
+                  <h5>Контакти</h5>
+                  <p><i class="fas fa-envelope"></i> hello@sweetcorner.com</p>
+                  <p><i class="fas fa-phone"></i> +380 99 123 45 67</p>
+                  <p><i class="fas fa-map-marker-alt"></i> вул. Центральна, 123</p>
+               </div>
+               <div class="col-md-4">
+                  <h5>Слідкуйте за нами</h5>
+                  <div class="social-links">
+                     <a class="me-3" data-bs-toggle="tooltip" title="Ця кнопка наразі не працює"><i class="fab fa-instagram fa-2x"></i></a>
+                     <a class="me-3" data-bs-toggle="tooltip" title="Ця кнопка наразі не працює"><i class="fab fa-facebook fa-2x"></i></a>
+                     <a class="me-3" data-bs-toggle="tooltip" title="Ця кнопка наразі не працює"><i class="fab fa-tiktok fa-2x"></i></a>
+                  </div>
+               </div>
+            </div>
+            <div class="text-center mt-4">
+               <small>&copy; 2024 Sweet Corner. Усі права захищені.</small>
+            </div>
+         </div>
+      </footer>
+      <!--/FOOTER-->
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+      <script src="scripts/scripts.js"></script>
+   </body>
+</html>
