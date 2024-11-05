@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знак Зодіаку за місяцем</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab12 - Task 3</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Визначення знака зодіаку</h1>
+            <p>Введіть номер місяця (від 1 до 12), щоб дізнатися свій знак зодіаку:</p>
+
+            <input type="number" id="monthInput" min="1" max="12" placeholder="Введіть номер місяця">
+            <button onclick="findZodiac()">Перевірити</button>
+
+            <p id="zodiacResult" class="result-text"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function findZodiac() {
+            const month = document.getElementById("monthInput").value;
+            let zodiac;
+
+            switch (month) {
+                case "1":
+                    zodiac = "Козеріг (до 20 січня), Водолій (після 20 січня)";
+                    break;
+                case "2":
+                    zodiac = "Водолій (до 18 лютого), Риби (після 18 лютого)";
+                    break;
+                case "3":
+                    zodiac = "Риби (до 20 березня), Овен (після 20 березня)";
+                    break;
+                case "4":
+                    zodiac = "Овен (до 19 квітня), Телець (після 19 квітня)";
+                    break;
+                case "5":
+                    zodiac = "Телець (до 20 травня), Близнюки (після 20 травня)";
+                    break;
+                case "6":
+                    zodiac = "Близнюки (до 21 червня), Рак (після 21 червня)";
+                    break;
+                case "7":
+                    zodiac = "Рак (до 22 липня), Лев (після 22 липня)";
+                    break;
+                case "8":
+                    zodiac = "Лев (до 22 серпня), Діва (після 22 серпня)";
+                    break;
+                case "9":
+                    zodiac = "Діва (до 22 вересня), Терези (після 22 вересня)";
+                    break;
+                case "10":
+                    zodiac = "Терези (до 23 жовтня), Скорпіон (після 23 жовтня)";
+                    break;
+                case "11":
+                    zodiac = "Скорпіон (до 22 листопада), Стрілець (після 22 листопада)";
+                    break;
+                case "12":
+                    zodiac = "Стрілець (до 21 грудня), Козеріг (після 21 грудня)";
+                    break;
+                default:
+                    zodiac = "Будь ласка, введіть правильний номер місяця (від 1 до 12).";
+            }
+
+            document.getElementById("zodiacResult").textContent = zodiac;
+        }
+    </script>
+</body>
+</html>

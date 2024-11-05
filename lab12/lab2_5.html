@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 5</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .subject-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .subject-input {
+            flex: 1;
+            margin-right: 5px;
+        }
+
+        .subject-input:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab12 - Task 5</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 5: Обчислення середньої оцінки</h1>
+            <p>Введіть оцінки для кожної дисципліни (в межах 0-100):</p>
+
+            <div class="subject-row">
+                <input type="number" id="business" class="subject-input" placeholder="Бізнес-планування" min="0" max="100">
+                <input type="number" id="foreign" class="subject-input" placeholder="Іноземна мова" min="0" max="100">
+                <input type="number" id="signalProcessing" class="subject-input" placeholder="Цифрова обробка сигналів" min="0" max="100">
+            </div>
+            <div class="subject-row">
+                <input type="number" id="crossPlatform" class="subject-input" placeholder="Розробка кросплатформенних додатків" min="0" max="100">
+                <input type="number" id="networks" class="subject-input" placeholder="Комп'ютерні мережі" min="0" max="100">
+                <input type="number" id="intelligentSystems" class="subject-input" placeholder="Системи інтелектуального аналізу" min="0" max="100">
+            </div>
+            <div class="subject-row">
+                <input type="number" id="numericalMethods" class="subject-input" placeholder="Чисельні методи" min="0" max="100">
+                <input type="number" id="operatingSystems" class="subject-input" placeholder="Операційні системи" min="0" max="100">
+                <input type="number" id="probability" class="subject-input" placeholder="Теорія ймовірностей" min="0" max="100">
+            </div>
+            <div class="subject-row">
+                <input type="number" id="webTechnologies" class="subject-input" placeholder="Технології веб розробки" min="0" max="100">
+                <input type="number" id="mathematicalMethods" class="subject-input" placeholder="Математичні методи" min="0" max="100">
+                <input type="number" id="dbOrganization" class="subject-input" placeholder="Організація баз даних" min="0" max="100">
+            </div>
+            
+            <button onclick="calculateAverage()">Обчислити середню оцінку</button>
+
+            <p id="result" class="result-text"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateAverage() {
+            const subjects = {
+                "Бізнес-планування": parseFloat(document.getElementById("business").value),
+                "Іноземна мова": parseFloat(document.getElementById("foreign").value),
+                "Цифрова обробка сигналів": parseFloat(document.getElementById("signalProcessing").value),
+                "Розробка кросплатформенних додатків": parseFloat(document.getElementById("crossPlatform").value),
+                "Комп'ютерні мережі": parseFloat(document.getElementById("networks").value),
+                "Системи інтелектуального аналізу": parseFloat(document.getElementById("intelligentSystems").value),
+                "Чисельні методи": parseFloat(document.getElementById("numericalMethods").value),
+                "Операційні системи": parseFloat(document.getElementById("operatingSystems").value),
+                "Теорія ймовірностей": parseFloat(document.getElementById("probability").value),
+                "Технології веб розробки": parseFloat(document.getElementById("webTechnologies").value),
+                "Математичні методи": parseFloat(document.getElementById("mathematicalMethods").value),
+                "Організація баз даних": parseFloat(document.getElementById("dbOrganization").value),
+            };
+
+            let total = 0;
+            let count = 0;
+
+            for (let subject in subjects) {
+                if (!isNaN(subjects[subject])) {
+                    total += subjects[subject];
+                    count++;
+                }
+            }
+
+            const average = count > 0 ? (total / count).toFixed(2) : 0;
+            document.getElementById("result").textContent = `Середня оцінка: ${average}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'CalmnessMono';
+    src: url('fonts/CALMNESSMONO.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --surface: #ffc0cb; /* світло-рожевий для фону */
+    --window-frame: #a0005e; /* темний рожевий для рамки */
+    --dialog-pink: #d46cb3; /* темний рожевий для заголовка */
+    --dialog-pink-light: #ff99cc; /* світлий рожевий для градієнта заголовка */
+    --dialog-gray: #c89fa7; /* рожевий відтінок сірого для неактивного заголовка */
+    --dialog-gray-light: #e4b7c1; /* світліший рожевий-сірий для неактивного заголовка */
+}
+
+body {
+    font-family: 'CalmnessMono', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #ffc6d9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.window {
+    box-shadow: inset -1px -1px var(--window-frame), inset 1px 1px #ffffff;
+    background: var(--surface);
+    padding: 3px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+.title-bar {
+    background: linear-gradient(90deg, var(--dialog-pink), var(--dialog-pink-light));
+    padding: 6px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: 'CalmnessMono', Arial, sans-serif;
+    user-select: none;
+}
+
+.title-bar.inactive {
+    background: linear-gradient(90deg, var(--dialog-gray), var(--dialog-gray-light));
+}
+
+.title-bar-text {
+    font-weight: normal; /* прибрано жирний текст */
+    font-size: 18px; /* збільшено розмір шрифту */
+    margin-right: 24px;
+}
+
+.title-bar-controls {
+    display: flex;
+}
+
+.title-bar-controls button {
+    min-width: 16px;
+    min-height: 14px;
+    background: #ffebef;
+    border: none;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #a46b7e;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+}
+
+.title-bar-controls button:active {
+    box-shadow: inset 1px 1px #ffffff, inset -1px -1px #a46b7e;
+}
+
+.window-body {
+    margin: 16px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.home-button {
+    display: block;
+    margin: 16px auto; /* Центрування кнопки */
+    padding: 8px 16px;
+    background-color: #ffebef;
+    border: none;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #a46b7e;
+    cursor: pointer;
+    font-family: 'CalmnessMono', Arial, sans-serif;
+    font-size: 1.2rem; /* Збільшений розмір шрифту */
+    color: #333;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.home-button:active {
+    box-shadow: inset 1px 1px #ffffff, inset -1px -1px #a46b7e;
+}
+
+.result-text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}

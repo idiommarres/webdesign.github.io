@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 6</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .option-button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab12 - Task 6</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Гра "Камінь, Ножниці, Папір"</h1>
+            <p>Оберіть вашу дію:</p>
+            <button class="option-button" onclick="makeChoice('камінь')">Камінь</button>
+            <button class="option-button" onclick="makeChoice('ножниці')">Ножниці</button>
+            <button class="option-button" onclick="makeChoice('папір')">Папір</button>
+            
+            <p id="result" class="result-text"></p>
+            <p id="score" class="score-text"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        let totalGames = 0;
+        let wins = 0;
+        let losses = 0;
+
+        function makeChoice(userChoice) {
+            const choices = ['камінь', 'ножниці', 'папір'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            totalGames++;
+
+            if (userChoice === computerChoice) {
+                document.getElementById("result").textContent = `Обидва вибрали ${userChoice}. Нічия!`;
+            } else if (
+                (userChoice === 'камінь' && computerChoice === 'ножниці') ||
+                (userChoice === 'ножниці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')
+            ) {
+                wins++;
+                document.getElementById("result").textContent = `Ви вибрали ${userChoice}, комп'ютер вибрав ${computerChoice}. Ви виграли!`;
+            } else {
+                losses++;
+                document.getElementById("result").textContent = `Ви вибрали ${userChoice}, комп'ютер вибрав ${computerChoice}. Ви програли!`;
+            }
+
+            document.getElementById("score").textContent = `Загальна кількість ігор: ${totalGames}, Виграні: ${wins}, Програні: ${losses}`;
+        }
+    </script>
+</body>
+</html>

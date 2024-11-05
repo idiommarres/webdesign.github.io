@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2: Квадратне рівняння</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab12 - Task 2</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 2: Квадратне рівняння</h1>
+            <p>Введіть коефіцієнти для квадратного рівняння <i>ax² + bx + c = 0</i>:</p>
+
+            <label for="a">a:</label>
+            <input type="number" id="a" placeholder="a" value="1"required>
+            <br><br>
+
+            <label for="b">b:</label>
+            <input type="number" id="b" placeholder="b" value="1" required>
+            <br><br>
+
+            <label for="c">c:</label>
+            <input type="number" id="c" placeholder="c" value="1" required>
+            <br><br>
+
+            <button onclick="solveQuadratic()">Визначити розв'язок</button>
+
+            <p id="result" class="result-text"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function solveQuadratic() {
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+            const c = parseFloat(document.getElementById("c").value);
+
+            // Перевірка на те, чи коефіцієнт 'a' не є нулем
+            if (a === 0) {
+                document.getElementById("result").textContent = "Коефіцієнт 'a' не може бути нулем!";
+                return;
+            }
+
+            // Обчислення дискримінанту
+            const D = b * b - 4 * a * c;
+
+            // Перевірка дискримінанту
+            if (D > 0) {
+                document.getElementById("result").textContent = "Рівняння має два різних корені.";
+            } else if (D === 0) {
+                document.getElementById("result").textContent = "Рівняння має один корінь.";
+            } else {
+                document.getElementById("result").textContent = "Рівняння не має розв'язків у множині дійсних чисел.";
+            }
+        }
+    </script>
+</body>
+</html>

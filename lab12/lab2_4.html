@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 4: Оператори циклів</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab12 - Task 4</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 4: Оператори циклів</h1>
+
+            <!-- 1. Обчислення суми чисел -->
+            <div>
+                <h3>Сума чисел від 1 до N (for цикл)</h3>
+                <input type="number" id="sumInput" placeholder="Введіть число N" min="1">
+                <button onclick="calculateSum()">Обчислити суму</button>
+                <p id="sumResult"></p>
+            </div>
+
+            <!-- 2. Пошук простих чисел -->
+            <div>
+                <h3>Прості числа до N (while цикл)</h3>
+                <input type="number" id="primesInput" placeholder="Введіть число N" min="1">
+                <button onclick="findPrimes()">Обчислити прості числа</button>
+                <p id="primesResult"></p>
+            </div>
+
+            <!-- 3. Обчислення факторіалу -->
+            <div>
+                <h3>Факторіал числа N (do-while цикл)</h3>
+                <input type="number" id="factorialInput" placeholder="Введіть число N" min="1">
+                <button onclick="calculateFactorial()">Обчислити факторіал</button>
+                <p id="factorialResult"></p>
+            </div>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Обчислення суми чисел від 1 до N (for цикл)
+        function calculateSum() {
+            const N = parseInt(document.getElementById("sumInput").value);
+            if (isNaN(N) || N <= 0) {
+                alert("Будь ласка, введіть коректне число N.");
+                return;
+            }
+
+            let sum = 0;
+            for (let i = 1; i <= N; i++) {
+                sum += i;
+            }
+            document.getElementById("sumResult").textContent = `Сума від 1 до ${N}: ${sum}`;
+        }
+
+        // 2. Пошук простих чисел до N (while цикл)
+        function findPrimes() {
+            const N = parseInt(document.getElementById("primesInput").value);
+            if (isNaN(N) || N <= 0) {
+                alert("Будь ласка, введіть коректне число N.");
+                return;
+            }
+
+            let primes = [];
+            let i = 2;
+            while (i <= N) {
+                let isPrime = true;
+                for (let j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) primes.push(i);
+                i++;
+            }
+            document.getElementById("primesResult").textContent = `Прості числа до ${N}: ${primes.join(", ")}`;
+        }
+
+        // 3. Обчислення факторіалу числа N (do-while цикл)
+        function calculateFactorial() {
+            const N = parseInt(document.getElementById("factorialInput").value);
+            if (isNaN(N) || N <= 0) {
+                alert("Будь ласка, введіть коректне число N.");
+                return;
+            }
+
+            let factorial = 1;
+            let j = 1;
+            do {
+                factorial *= j;
+                j++;
+            } while (j <= N);
+            document.getElementById("factorialResult").textContent = `Факторіал числа ${N}: ${factorial}`;
+        }
+    </script>
+</body>
+</html>
