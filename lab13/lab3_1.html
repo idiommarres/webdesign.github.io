@@ -17,7 +17,7 @@
 <body>
     <div class="window">
         <div class="title-bar">
-            <span class="title-bar-text">Day.exe</span>
+            <span class="title-bar-text">Lab12 - Task 1</span>
             <div class="title-bar-controls">
                 <button aria-label="Згорнути">🗕</button>
                 <button aria-label="Розгорнути">🗖</button>
@@ -37,6 +37,30 @@
     </div>
 
     <script>
+        function displayWeekDays() {
+            const days = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+            const today = new Date().getDay();
+            const container = document.getElementById("week-container");
+
+            days.forEach((day, index) => {
+                const dayElement = document.createElement("p");
+                dayElement.textContent = day;
+                dayElement.classList.add("day");
+
+                // Вираховуємо відстань дня від поточного
+                const distance = Math.abs(today - index);
+
+                // Встановлюємо розмір тексту, прозорість та кольори на основі відстані від поточного дня
+                dayElement.style.fontSize = `${36 - distance * 5}px`; // Контраст у розмірах
+                dayElement.style.opacity = `${1 - distance * 0.15}`; // Контраст у прозорості
+                dayElement.style.color = `hsl(${340 - distance * 10}, 70%, 70%)`; // Рожеві відтінки
+
+                container.appendChild(dayElement);
+            });
+        }
+
+        // Викликаємо функцію для відображення днів тижня
+        displayWeekDays();
     </script>
 </body>
 </html>
