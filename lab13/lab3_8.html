@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 8</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .result {
+            font-size: 1.2em;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Type Checker</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 8: Перевірка типів аргументів</h1>
+            <p>Введіть значення через кому (наприклад: Hello, 42, true, 3.14, JavaScript):</p>
+
+            <div class="input-group">
+                <input type="text" id="inputValues" placeholder="Введіть значення">
+                <button onclick="checkArgumentTypes()">Перевірити типи аргументів</button>
+            </div>
+
+            <div id="result" class="result"></div>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Функція для перевірки типів аргументів
+        function checkArgumentTypes() {
+            const input = document.getElementById("inputValues").value;
+            const values = input.split(',').map(value => value.trim());
+            
+            let typesCount = {
+                string: 0,
+                number: 0,
+                boolean: 0,
+                object: 0,
+                undefined: 0,
+                function: 0
+            };
+
+            values.forEach(value => {
+                // Спробуємо визначити тип значення
+                if (!isNaN(value) && value !== '') {
+                    typesCount.number++;
+                } else if (value.toLowerCase() === "true" || value.toLowerCase() === "false") {
+                    typesCount.boolean++;
+                } else {
+                    typesCount.string++;
+                }
+            });
+
+            let resultText = "Кількість аргументів різних типів:<br>";
+            for (const type in typesCount) {
+                if (typesCount[type] > 0) {
+                    resultText += `${type}: ${typesCount[type]}<br>`;
+                }
+            }
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>

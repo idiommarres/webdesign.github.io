@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Генератор компліментів</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">ComplimentGenerator.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+        <div class="window-body">
+            <h1 class="calmness-text">Генератор персональних компліментів</h1>
+            
+            <div class="input-group">
+                <label>Ваше ім'я:</label>
+                <input type="text" id="nameInput" placeholder="Введіть ваше ім'я">
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="includeEmoji" checked>
+                <label for="includeEmoji">Додати емодзі</label>
+                
+                <input type="checkbox" id="includeDate">
+                <label for="includeDate">Додати дату</label>
+                
+                <input type="checkbox" id="includeWish">
+                <label for="includeWish">Додати побажання</label>
+            </div>
+            
+            <button onclick="generateCompliment()">Згенерувати комплімент</button>
+
+			<div class="window">
+                <div class="title-bar">
+                    <span class="title-bar-text">Result.exe</span>
+					<div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+                </div>
+                <div class="window-body" id="output">
+                </div>
+            </div>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function generatePersonalizedCompliment(
+            name = "Друже",
+            includeEmoji = true,
+            includeDate = false,
+            includeWish = false
+        ) {
+            const compliments = [
+                "ти сьогодні виглядаєш неперевершено",
+                "твоя усмішка осяює весь простір навколо",
+                "твоя креативність не знає меж",
+                "ти робиш цей світ кращим",
+                "твоя енергія заряджає всіх навколо"
+            ];
+
+            const wishes = [
+                "Нехай кожен твій день буде сповнений радості!",
+                "Бажаю тобі незабутніх моментів!",
+                "Нехай удача завжди буде на твоєму боці!",
+                "Нехай всі твої мрії здійсняться!",
+                "Бажаю тобі космічного успіху у всьому!"
+            ];
+
+            const emojis = ["✨", "🌟", "💫", "🌈", "⭐", "🌺", "🌸", "🎉"];
+            
+            let result = `Привіт, ${name}, `;
+            result += compliments[Math.floor(Math.random() * compliments.length)];
+            
+            if (includeEmoji) {
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                result = randomEmoji + " " + result + " " + randomEmoji;
+            }
+            
+            if (includeDate) {
+                const today = new Date().toLocaleDateString('uk-UA', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                result += `\n\nСьогодні ${today}`;
+            }
+            
+            if (includeWish) {
+                const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+                result += `\n\n${randomWish}`;
+            }
+            
+            return result;
+        }
+
+        function generateCompliment() {
+            const name = document.getElementById('nameInput').value.trim() || "Друже";
+            const includeEmoji = document.getElementById('includeEmoji').checked;
+            const includeDate = document.getElementById('includeDate').checked;
+            const includeWish = document.getElementById('includeWish').checked;
+            
+            const compliment = generatePersonalizedCompliment(
+                name,
+                includeEmoji,
+                includeDate,
+                includeWish
+            );
+            
+            const output = document.getElementById('output');
+            output.innerHTML = compliment.split('\n').join('<br>');
+            output.style.display = 'block';
+        }
+    </script>
+
+    <style>
+        .input-group {
+            margin: 10px 0;
+        }
+        .checkbox-group {
+            margin: 15px 0;
+        }
+        .output-box {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</body>
+</html>

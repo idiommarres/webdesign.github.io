@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 7</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .result {
+            font-size: 1.2em;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">MaxFinder.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 7: Використання функції як змінної</h1>
+            <p>Цей приклад демонструє, як можна використовувати функцію для знаходження максимального значення між двома числами як змінну:</p>
+
+            <div class="input-group">
+                <label>Перше число:</label>
+                <input type="number" id="number1" placeholder="Введіть перше число">
+            </div>
+            <div class="input-group">
+                <label>Друге число:</label>
+                <input type="number" id="number2" placeholder="Введіть друге число">
+            </div>
+
+            <button onclick="findMax()">Знайти Максимальне</button>
+
+            <div id="result" class="result"></div>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Функція для знаходження максимального значення
+        const max = function(a, b) {
+            return a > b ? a : b;
+        };
+
+        // Функція, яка виконує обчислення
+        function findMax() {
+            const num1 = parseFloat(document.getElementById("number1").value);
+            const num2 = parseFloat(document.getElementById("number2").value);
+
+            // Використання функції як змінної
+            const result = max(num1, num2);
+
+            document.getElementById("result").innerText = `Максимальне значення: ${result}`;
+        }
+    </script>
+</body>
+</html>

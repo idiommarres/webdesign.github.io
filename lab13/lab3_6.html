@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .result {
+            font-size: 1.2em;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+        .input-group {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Math Operations</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Math.exe</h1>
+            <p>Введіть два числа та оберіть операцію:</p>
+
+            <div class="input-group">
+                <label>Перше число:</label>
+                <input type="number" id="number1" placeholder="Введіть перше число">
+            </div>
+            <div class="input-group">
+                <label>Друге число:</label>
+                <input type="number" id="number2" placeholder="Введіть друге число">
+            </div>
+            <div class="input-group">
+                <label>Оберіть операцію:</label>
+                <select id="operation">
+                    <option value="add">Додавання</option>
+                    <option value="subtract">Віднімання</option>
+                    <option value="multiply">Множення</option>
+                    <option value="divide">Ділення</option>
+                </select>
+            </div>
+
+            <button onclick="performOperation()">Обчислити</button>
+
+            <div id="result" class="result"></div>
+			 <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Функції для різних операцій
+        function add(a, b) {
+            return a + b;
+        }
+
+        function subtract(a, b) {
+            return a - b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            return b !== 0 ? a / b : "Ділення на нуль неможливе";
+        }
+
+        // Головна функція, яка виконує обрану операцію
+        function performOperation() {
+            const num1 = parseFloat(document.getElementById("number1").value);
+            const num2 = parseFloat(document.getElementById("number2").value);
+            const operation = document.getElementById("operation").value;
+
+            let result;
+
+            switch (operation) {
+                case "add":
+                    result = calculate(num1, num2, add);
+                    break;
+                case "subtract":
+                    result = calculate(num1, num2, subtract);
+                    break;
+                case "multiply":
+                    result = calculate(num1, num2, multiply);
+                    break;
+                case "divide":
+                    result = calculate(num1, num2, divide);
+                    break;
+            }
+
+            document.getElementById("result").innerText = `Результат: ${result}`;
+        }
+
+        // Функція calculate, що приймає операцію як аргумент
+        function calculate(a, b, operation) {
+            return operation(a, b);
+        }
+    </script>
+</body>
+</html>

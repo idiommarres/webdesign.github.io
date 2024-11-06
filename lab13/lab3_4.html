@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Паліндром</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .input-group {
+            margin: 15px 0;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+        .success {
+            background: #c3e6cb;
+            border-color: #8fd19e;
+        }
+        .error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Polyndrom.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+        <div class="window-body">
+            <h1 class="calmness-text">Перевірка на паліндром</h1>
+            <p>Введіть слово або фразу для перевірки чи є воно паліндромом:</p>
+            
+            <div class="input-group">
+                <input type="text" id="textInput" placeholder="Наприклад: око або Я несу гусеня">
+            </div>
+            
+            <button onclick="checkPalindrome()">Перевірити</button>
+            <div id="result" class="result"></div>
+            
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            let text = document.getElementById('textInput').value;
+            let cleanText = text.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+            
+            let resultDiv = document.getElementById('result');
+            
+            // Перевірка на довжину
+            if (cleanText.length <= 1) {
+                resultDiv.innerHTML = "Текст має містити більше одного символу!";
+                resultDiv.className = 'result error';
+                return;
+            }
+            
+            let reversedText = cleanText.split('').reverse().join('');
+            
+            if (cleanText.length === 0) {
+                resultDiv.innerHTML = "Будь ласка, введіть текст";
+                resultDiv.className = 'result error';
+            } else if (cleanText === reversedText) {
+                resultDiv.innerHTML = `"${text}" - це паліндром!`;
+                resultDiv.className = 'result success';
+            } else {
+                resultDiv.innerHTML = `"${text}" - це не паліндром`;
+                resultDiv.className = 'result error';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форматування тексту</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .text-box {
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin: 2px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .sad {
+            background-color: #4f92f0;
+            color: white;
+        }
+
+        .happy {
+            background-color: #76c7a5;
+            color: white;
+        }
+
+        .warning {
+            background-color: #f3d547;
+            color: black;
+        }
+
+        .error {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .info {
+            background-color: #9e9e9e;
+            color: white;
+        }
+
+        #inputText {
+            width: 80%;
+            padding: 6px;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .example-text {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .example-text span {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">format_text.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h3>Приклад форматованого тексту:</h3>
+            <p class="example-text">
+                <span class="text-box sad">%sad%текст%sad%</span> 
+                <span class="text-box happy">%happy%текст%happy%</span> 
+                <span class="text-box warning">%warning%текст%warning%</span><br>
+                <span class="text-box error">%error%текст%error%</span> 
+                <span class="text-box info">%info%текст%info%</span>
+            </p>
+
+            <h3>Введіть ваш форматований текст:</h3>
+            <p>Введіть текст і позначте його в форматі <code>%sad%text%sad%</code> для синьої коробки, <code>%happy%text%happy%</code> для зеленої, і так далі.</p>
+            <textarea id="inputText" placeholder="Наприклад: Це %happy%щасливий%happy% текст"></textarea>
+            <button onclick="formatText()">Форматувати текст</button>
+
+            <div class="window">
+                <div class="title-bar">
+                    <span class="title-bar-text">Result.exe</span>
+					<div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+                </div>
+                <div class="window-body" id="output">
+                </div>
+            </div>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function formatTextBox(text, type) {
+            return `<span class="text-box ${type}">${text}</span>`;
+        }
+
+        function formatText() {
+            let text = document.getElementById('inputText').value;
+            if (!text) return;
+
+            const types = ['sad', 'happy', 'warning', 'error', 'info'];
+            
+            types.forEach(type => {
+                const regex = new RegExp(`%${type}%(.*?)%${type}%`, 'g');
+                text = text.replace(regex, (match, content) => {
+                    return formatTextBox(content, type);
+                });
+            });
+
+            document.getElementById('output').innerHTML = text;
+        }
+
+        window.onload = function() {
+            document.getElementById('inputText').value = 
+                'Це %happy%щасливий%happy% текст, а це %sad%сумний%sad% текст';
+            formatText();
+        };
+    </script>
+</body>
+</html>

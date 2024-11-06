@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 2</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">dEADline.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 2: Зворотний відлік до дедлайну</h1>
+            <p>Час, що залишився до здачі лабораторних робіт (1 грудня):</p>
+            
+            <!-- Контейнер для зворотного відліку -->
+            <p id="countdown" style="font-size: 1.2rem; font-weight: bold;"></p>
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const today = new Date();
+            const deadline = new Date(today.getFullYear(), 11, 1); // 1 грудня поточного року
+            const day = 86400000;
+            const hour = 3600000;
+            const minute = 60000;
+            const second = 1000;
+
+            let time = deadline.getTime() - today.getTime();
+
+            if (time > 0) {
+                const days = Math.floor(time / day);
+                const hours = Math.floor((time - days * day) / hour);
+                const minutes = Math.floor((time - days * day - hours * hour) / minute);
+                const seconds = Math.floor((time - days * day - hours * hour - minutes * minute) / second);
+                const countdownText = `${days} днів, ${hours} годин, ${minutes} хвилин, ${seconds} секунд до здачі лабораторних робіт.`;
+                document.getElementById("countdown").textContent = countdownText;
+            } else {
+                document.getElementById("countdown").textContent = "Дедлайн пройшов. 😅";
+            }
+        }
+
+        // Оновлюємо відлік щосекунди
+        setInterval(updateCountdown, 1000);
+        // Ініціалізуємо перше відображення
+        updateCountdown();
+    </script>
+</body>
+</html>
