@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 15 - Завдання 4</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">shuffleText.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 4: Програма шифрування</h1>
+            
+            <!-- Пояснення завдання для користувача -->
+            <p>Введіть текст, і програма перемішає букви в кожному слові, крім першої та останньої букви.</p>
+            <p><strong>Приклад введення:</strong> "Привіт світ"</p>
+
+            <label for="input-text">Введіть текст для шифрування:</label>
+            <input type="text" id="input-text" placeholder="Введіть ваш текст тут...">
+            <button onclick="shuffleText()">Зашифрувати</button>
+
+            <!-- Виведення зашифрованого тексту -->
+            <div id="results" style="margin-top: 15px;">
+                <p id="shuffled-text" style="font-weight: bold;"></p>
+            </div>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        function shuffleText() {
+            let text = document.getElementById("input-text").value;
+            let shuffledText = text.replace(/\b\w+\b/g, function(word) {
+                if (word.length <= 3) return word; // Слова довжиною 3 і менше не перемішуємо
+                let middle = word.slice(1, -1).split(''); // Отримуємо середину слова
+                for (let i = middle.length - 1; i > 0; i--) {
+                    let j = Math.floor(Math.random() * (i + 1)); // Перемішуємо середину
+                    [middle[i], middle[j]] = [middle[j], middle[i]]; // Міняємо місцями букви
+                }
+                return word[0] + middle.join('') + word[word.length - 1]; // Відновлюємо слово
+            });
+            document.getElementById("shuffled-text").textContent = "Зашифрований текст: " + shuffledText;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 14 - Завдання 3</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab14 - Task 3</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 3: Робота з масивом</h1>
+            
+            <p id="original-array"></p>
+            <p id="count-outside-interval"></p>
+            <p id="sum-negative-even-index"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Встановіть значення для проміжку (X, Y]
+        const X = 10;
+        const Y = 50;
+
+        // Створення масиву з 15 випадкових чисел
+        let array = [];
+        for (let i = 0; i < 15; i++) {
+            array.push(Math.floor(Math.random() * 100) - 50);  // випадкове число від -50 до 49
+        }
+        document.getElementById("original-array").textContent = "Початковий масив: " + array.join(", ");
+
+        // Підрахунок кількості чисел, що не належать до проміжку (X, Y]
+        let countOutsideInterval = array.filter(num => num <= X || num > Y).length;
+        document.getElementById("count-outside-interval").textContent = "Кількість чисел поза проміжком (" + X + ", " + Y + "]: " + countOutsideInterval;
+
+        // Обчислення суми від'ємних чисел на парних індексах
+        let sumNegativeEvenIndex = array.reduce((sum, num, index) => {
+            return index % 2 === 0 && num < 0 ? sum + num : sum;
+        }, 0);
+        document.getElementById("sum-negative-even-index").textContent = "Сума від'ємних чисел на парних індексах: " + sumNegativeEvenIndex;
+    </script>
+</body>
+</html>

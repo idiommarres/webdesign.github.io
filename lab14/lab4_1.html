@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 14 - Завдання 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Treag.exe</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 1: Відображення масивів</h1>
+            
+            <p id="triangular-numbers"></p>
+            <p id="square-numbers"></p>
+            <p id="merged-array"></p>
+            <p id="sorted-array"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Створення масиву трикутних чисел
+        let Treag = [];
+        for (let n = 1; n <= 10; n++) {
+            Treag.push(n * (n + 1) / 2);
+        }
+        document.getElementById("triangular-numbers").textContent = "Трикутні числа: " + Treag.join("  ");
+
+        // Створення масиву квадратів чисел
+        let kvd = [];
+        for (let n = 1; n <= 10; n++) {
+            kvd.push(n * n);
+        }
+        document.getElementById("square-numbers").textContent = "Квадрати чисел: " + kvd.join("  ");
+
+        // Об'єднання масивів Treag і kvd
+        let rez = Treag.concat(kvd);
+        document.getElementById("merged-array").textContent = "Об'єднаний масив: " + rez.join(", ");
+
+        // Сортування об'єднаного масиву у зворотному порядку
+        rez.sort((a, b) => b - a);
+        document.getElementById("sorted-array").textContent = "Відсортований масив: " + rez.join(", ");
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 14 - Завдання 4</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab14 - Task 4</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 4: Робота з масивами фруктів</h1>
+            
+            <p id="fruits-array"></p>
+            <p id="citrus-array"></p>
+            <p id="combined-array"></p>
+            <p id="inserted-array"></p>
+            <p id="trimmed-array"></p>
+            <p id="sorted-alphabetical"></p>
+            <p id="sorted-reverse-alphabetical"></p>
+            <p id="sorted-by-length"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Початкові масиви
+        let fruits = ['apple', 'pineapple', 'mango', 'melon', 'grape'];
+        let citrus = ['orange', 'lemon', 'lime'];
+
+        // Виведення початкових масивів
+        document.getElementById("fruits-array").textContent = "Масив fruits: " + fruits.join(", ");
+        document.getElementById("citrus-array").textContent = "Масив citrus: " + citrus.join(", ");
+
+        // Об'єднаний масив
+        let combinedArray = fruits.concat(citrus);
+        document.getElementById("combined-array").textContent = "Об'єднаний масив fruits: " + combinedArray.join(", ");
+
+        // Вставка нових елементів після 'mango'
+        let insertedArray = fruits.slice();
+        insertedArray.splice(3, 0, 'pear', 'cherry', 'plum', 'raspberry', 'strawberry');
+        document.getElementById("inserted-array").textContent = "Масив fruits з новими елементами: " + insertedArray.join(", ");
+
+        // Видалення останніх 3 елементів
+        let trimmedArray = insertedArray.slice(0, -3);
+        document.getElementById("trimmed-array").textContent = "Масив fruits без останніх 3 елементів: " + trimmedArray.join(", ");
+
+        // Сортування в алфавітному порядку
+        let sortedAlphabetical = insertedArray.slice().sort();
+        document.getElementById("sorted-alphabetical").textContent = "Масив fruits в алфавітному порядку: " + sortedAlphabetical.join(", ");
+
+        // Сортування у зворотному алфавітному порядку
+        let sortedReverseAlphabetical = insertedArray.slice().sort().reverse();
+        document.getElementById("sorted-reverse-alphabetical").textContent = "Масив fruits у зворотному алфавітному порядку: " + sortedReverseAlphabetical.join(", ");
+
+        // Сортування за довжиною слів
+        let sortedByLength = insertedArray.slice().sort((a, b) => a.length - b.length);
+        document.getElementById("sorted-by-length").textContent = "Масив fruits за довжиною слів: " + sortedByLength.join(", ");
+    </script>
+</body>
+</html>

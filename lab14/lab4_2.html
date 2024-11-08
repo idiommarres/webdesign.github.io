@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна Робота 12 - Завдання 2</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title-bar-text">Lab12 - Task 2</span>
+            <div class="title-bar-controls">
+                <button aria-label="Згорнути">🗕</button>
+                <button aria-label="Розгорнути">🗖</button>
+                <button aria-label="Закрити">🗙</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h1 class="calmness-text">Завдання 2: Масив і його модифікація</h1>
+            
+            <p id="original-array"></p>
+            <p id="modified-array"></p>
+
+            <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Створення масиву з 15 випадкових чисел
+        let array = [];
+        for (let i = 0; i < 15; i++) {
+            array.push(Math.floor(Math.random() * 100));  // випадкове число від 0 до 99
+        }
+        document.getElementById("original-array").textContent = "Початковий масив: " + array.join(", ");
+
+        // Пошук максимального елемента без використання вбудованих функцій
+        let maxIndex = 0;
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] > array[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        // Присвоєння значення максимального елемента останньому елементу
+        let maxElement = array[maxIndex];
+        array[array.length - 1] = maxElement;
+
+        // Замінюємо максимальний елемент на -1
+        array[maxIndex] = -1;
+
+        document.getElementById("modified-array").textContent = "Модифікований масив: " + array.join(", ");
+    </script>
+</body>
+</html>
