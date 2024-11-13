@@ -16,41 +16,74 @@
                 <button aria-label="Закрити">🗙</button>
             </div>
         </div>
-
         <div class="window-body">
             <h1 class="calmness-text">Завдання 4: Програма шифрування</h1>
             
-            <!-- Пояснення завдання для користувача -->
             <p>Введіть текст, і програма перемішає букви в кожному слові, крім першої та останньої букви.</p>
             <p><strong>Приклад введення:</strong> "Привіт світ"</p>
-
             <label for="input-text">Введіть текст для шифрування:</label>
             <input type="text" id="input-text" placeholder="Введіть ваш текст тут...">
             <button onclick="shuffleText()">Зашифрувати</button>
-
-            <!-- Виведення зашифрованого тексту -->
             <div id="results" style="margin-top: 15px;">
                 <p id="shuffled-text" style="font-weight: bold;"></p>
             </div>
-
             <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
         </div>
     </div>
-
     <script>
+        function shuffleWord(word) {
+            // Якщо слово коротше 4 букв, повертаємо його без змін
+            if (word.length < 4) {
+                return word;
+            }
+
+            // Беремо першу і останню букву
+            const firstLetter = word[0];
+            const lastLetter = word[word.length - 1];
+
+            // Беремо середні букви і перетворюємо їх на масив
+            let middleLetters = word.slice(1, -1).split('');
+
+            // Перемішуємо середні букви
+            for (let i = middleLetters.length - 1; i > 0; i--) {
+                // Генеруємо випадковий індекс від 0 до i
+                const randomIndex = Math.floor(Math.random() * (i + 1));
+                
+                // Міняємо місцями букви
+                const temp = middleLetters[i];
+                middleLetters[i] = middleLetters[randomIndex];
+                middleLetters[randomIndex] = temp;
+            }
+
+            // З'єднуємо всі частини слова назад
+            return firstLetter + middleLetters.join('') + lastLetter;
+        }
+
         function shuffleText() {
-            let text = document.getElementById("input-text").value;
-            let shuffledText = text.replace(/\b\w+\b/g, function(word) {
-                if (word.length <= 3) return word; // Слова довжиною 3 і менше не перемішуємо
-                let middle = word.slice(1, -1).split(''); // Отримуємо середину слова
-                for (let i = middle.length - 1; i > 0; i--) {
-                    let j = Math.floor(Math.random() * (i + 1)); // Перемішуємо середину
-                    [middle[i], middle[j]] = [middle[j], middle[i]]; // Міняємо місцями букви
-                }
-                return word[0] + middle.join('') + word[word.length - 1]; // Відновлюємо слово
-            });
+            // Отримуємо введений текст
+            const input = document.getElementById("input-text").value.trim();
+            
+            // Перевіряємо чи текст не порожній
+            if (!input) {
+                document.getElementById("shuffled-text").textContent = "Будь ласка, введіть текст.";
+                return;
+            }
+
+            // Розбиваємо текст на слова, перемішуємо кожне слово і з'єднуємо назад
+            const words = input.split(' ');
+            const shuffledWords = words.map(word => shuffleWord(word));
+            const shuffledText = shuffledWords.join(' ');
+
+            // Виводимо результат
             document.getElementById("shuffled-text").textContent = "Зашифрований текст: " + shuffledText;
         }
+
+        // Додаємо обробник натискання Enter
+        document.getElementById("input-text").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                shuffleText();
+            }
+        });
     </script>
 </body>
 </html>
