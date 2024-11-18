@@ -16,37 +16,54 @@
                 <button aria-label="Закрити">🗙</button>
             </div>
         </div>
-
         <div class="window-body">
             <h1 class="calmness-text">Завдання 3: Програма шифрування</h1>
             
-            <!-- Пояснення завдання для користувача -->
             <p>Введіть текст, і програма зашифрує його, замінивши кожну літеру на наступну за нею в алфавітному порядку. «я» буде перетворюватися на «а».</p>
             <p><strong>Приклад введення:</strong> "Привіт"</p>
-
             <label for="input-text">Введіть текст для шифрування:</label>
             <input type="text" id="input-text" placeholder="Введіть ваш текст тут...">
             <button onclick="encryptText()">Зашифрувати</button>
-
-            <!-- Виведення зашифрованого тексту -->
             <div id="results" style="margin-top: 15px;">
                 <p id="encrypted-text" style="font-weight: bold;"></p>
             </div>
-
             <button class="home-button" onclick="window.location.href='index.html'">🏠 Home</button>
         </div>
     </div>
-
     <script>
         function encryptText() {
+            // Визначаємо константи алфавітів
+            const ENG_LOWER = 'abcdefghijklmnopqrstuvwxyz';
+            const ENG_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const UKR_LOWER = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя';
+            const UKR_UPPER = 'АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ';
+
+            // Функція для отримання наступної літери з алфавіту
+            function getNextLetter(char, alphabet) {
+                const currentIndex = alphabet.indexOf(char);
+                if (currentIndex === -1) return char;
+                const nextIndex = (currentIndex + 1) % alphabet.length;
+                return alphabet[nextIndex];
+            }
+
             let text = document.getElementById("input-text").value;
-            let encryptedText = text.replace(/[а-яА-Яa-zA-Z]/g, function(char) {
-                if (char === 'я') return 'а';
-                if (char === 'Я') return 'А';
-                if (char === 'z') return 'a';
-                if (char === 'Z') return 'A';
-                return String.fromCharCode(char.charCodeAt(0) + 1);
-            });
+            let encryptedText = text.split('').map(char => {
+                // Перевіряємо приналежність до кожного з алфавітів
+                if (ENG_LOWER.includes(char)) {
+                    return getNextLetter(char, ENG_LOWER);
+                }
+                if (ENG_UPPER.includes(char)) {
+                    return getNextLetter(char, ENG_UPPER);
+                }
+                if (UKR_LOWER.includes(char)) {
+                    return getNextLetter(char, UKR_LOWER);
+                }
+                if (UKR_UPPER.includes(char)) {
+                    return getNextLetter(char, UKR_UPPER);
+                }
+                return char;
+            }).join('');
+            
             document.getElementById("encrypted-text").textContent = "Зашифрований текст: " + encryptedText;
         }
     </script>
